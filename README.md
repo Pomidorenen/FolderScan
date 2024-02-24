@@ -1,8 +1,10 @@
 # Folder scanner
 Program written in electron , that shows size of your folders on drive.
-### Screenshot
-!![Untitled](https://github.com/SAANN3/FolderScan/assets/95036865/122f3a21-96a1-4b29-b827-6a7c2da3c52f)
- | 
+## Screenshots
+Opened c:\Windows        |  Disk selector on linux
+:-------------------------:|:-------------------------:
+![Untitled](https://github.com/SAANN3/FolderScan/assets/95036865/122f3a21-96a1-4b29-b827-6a7c2da3c52f)| ![screenshot_2024-02-24-083836](https://github.com/SAANN3/FolderScan/assets/95036865/3b1433d7-dbf8-4d04-9722-6be5a4967844)
+
 ## Installation
 [Download](https://github.com/SAANN3/FolderScan/releases) a linux binary or windows installer
 ## Usage

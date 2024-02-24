@@ -10,7 +10,7 @@ Opened c:\Windows        |  Disk selector on linux
 ## Usage
 Run,select disk and let it scan (3~10 minutes), then navigate using mouse and buttons
 
-Also while scanning program will be showing itself as not responing, due to heavy task and ui is still going to update.
+Also while scanning program will be showing itself as not responing, due to heavy task while ui is still going to update.
 
 ### Or if you prefer to compile from source
 #### For linux

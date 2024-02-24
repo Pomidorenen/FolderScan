@@ -1,0 +1,59 @@
+{
+  "name": "folder-scan",
+  "version": "0.1.0",
+  "main": "electron/main.js",
+  "private": true,
+  "build": {
+    "icon": "public/logo512.png",
+    "productName": "Folder scanner",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "electron/main.js",
+      "**/*"
+    ],
+    "extraMetadata": {
+      "main": "electron/main.js"
+    }
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "electron-serve": "^1.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build-windows": "mkdir .\\build\\electron && cp -r .\\electron\\. .\\build\\electron",
+    "build-linux": "mkdir -p build/electron && cp -r electron/. build/electron",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-pack": "electron-builder"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "last 1 electron version"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^28.2.3",
+    "electron-builder": "^24.9.1"
+  }
+}

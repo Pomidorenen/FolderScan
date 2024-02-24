@@ -15,7 +15,7 @@ Also while scanning program will be showing itself as not responing, due to heav
 ### Or if you prefer to compile from source
 #### For linux
 ```
-https://github.com/SAANN3/FolderScan
+git clone https://github.com/SAANN3/FolderScan
 cd FolderScan
 npm install
 npm run build
@@ -25,7 +25,7 @@ npm run electron-pack
 Appimage will be placed in dist folder
 #### For windows
 ```
-https://github.com/SAANN3/FolderScan
+git clone https://github.com/SAANN3/FolderScan
 cd FolderScan
 npm install
 npm run build

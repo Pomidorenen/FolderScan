@@ -7,6 +7,10 @@ Opened c:\Windows        |  Disk selector on linux
 
 ## Installation
 [Download](https://github.com/SAANN3/FolderScan/releases) a linux binary or windows installer
+and for linux chmod before launch
+```
+chmod +x Folder.scanner-0.1.0.AppImage 
+```
 ## Usage
 Run,select disk and let it scan (3~10 minutes), then navigate using mouse and buttons
 

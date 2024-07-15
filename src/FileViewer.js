@@ -41,7 +41,7 @@ function FileViewer(props){
         fileList(filesRaw);
     },[startIndex,endIndex])
     function setFileList(path,arr,isLast){
-        arr.sort(compareBySize).reverse();
+        arr.sort((a,b)=>a.size-b.size);
         setFilesRaw(arr);
         setCurrentPath(path);
         fileList(arr);
@@ -72,39 +72,18 @@ function FileViewer(props){
         window.electronAPI.openFolder(previousItems[0]);
         setPreviousItems([...previousItems.slice(1)]);
     }
-    function sortByName(){
-        if(nameAscending){
-            filesRaw.sort(compareByName);
+    function sortBy(select,parametrs,column){
+        if(select){
+            filesRaw.sort((a,b)=>b[paramets]-a[paramets]);
         }
         else{
-            filesRaw.sort(compareByName).reverse();
+            filesRaw.sort((a,b)=>a[paramets]-b[paramets]);
         }
         fileList(filesRaw);
-        setNameAscending(!nameAscending);
-        setCurrentColumn(0);
+        setNameAscending(!select);
+        setCurrentColumn(column);
     }
-    function sortbySize(){
-        if(sizeAscending){
-            filesRaw.sort(compareBySize);
-        }
-        else{
-            filesRaw.sort(compareBySize).reverse();
-        }
-        fileList(filesRaw);
-        setSizeAscending(!sizeAscending);
-        setCurrentColumn(1);
-    }
-    function sortByType(){
-        if(typeAscending){
-            filesRaw.sort(compareByType);
-        }
-        else{
-            filesRaw.sort(compareByType).reverse();
-        }
-        fileList(filesRaw);
-        setTypeAscending(!typeAscending);
-        setCurrentColumn(2);
-    }
+
     function clickedItem(path,type){
         setPreviousItems([]);
         if(type == "folder"){
@@ -125,7 +104,7 @@ function FileViewer(props){
     }
     function fileList(arr){
         var BreakException = {};
-        let result = [];
+        var result = [];
         arr = arr.slice(startIndex);
         try{
             arr.forEach((element,i) =>{
@@ -157,9 +136,9 @@ function FileViewer(props){
         <div className="Table" ref={tableRef}  onScroll={scroller} >
         <table>
             <thead>
-                <th onClick={sortByType}>Type{currentColumn===2?(typeAscending?"▽":"△"):""}</th>
-                <th onClick={sortByName} className="elementText">Name{currentColumn===0?(nameAscending?"▽":"△"):""}</th>
-                <th onClick={sortbySize}>Size{currentColumn===1?(sizeAscending?"▽":"△"):""}</th>
+                <th onClick={()=>sortBy(typeAscending,"type",2)}>Type{currentColumn===2?(typeAscending?"▽":"△"):""}</th>
+                <th onClick={()=>sortBy(nameAscending,"name",0)} className="elementText">Name{currentColumn===0?(nameAscending?"▽":"△"):""}</th>
+                <th onClick={()=>sortBy(nameAscending,"size",1)}>Size{currentColumn===1?(sizeAscending?"▽":"△"):""}</th>
             </thead>
             <tbody >
                 {items}
@@ -172,34 +151,6 @@ function FileViewer(props){
 
 export default FileViewer;
 
-function compareBySize(a,b){
-    if( a.size < b.size ){
-        return -1;
-    }
-    if ( a.size > b.size ){
-        return 1;
-    }
-    return 0;
-}
-function compareByName(a,b){
-    if( a.name < b.name ){
-        return -1;
-    }
-    if ( a.name > b.name ){
-        return 1;
-    }
-    return 0;
-}
-function compareByType(a,b){
-    if( a.type < b.type ){
-        return -1;
-    }
-    if ( a.type > b.type ){
-        return 1;
-    }
-    return 0;
-}
-//https://stackoverflow.com/questions/10420352/converting-file-size-in-bytes-to-human-readable-string
 function getReadableFileSizeString(fileSizeInBytes) {
     var i = -1;
     var byteUnits = [' kB', ' MB', ' GB', ' TB', 'PB', 'EB', 'ZB', 'YB'];

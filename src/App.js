@@ -1,29 +1,14 @@
-import {  useEffect, useState } from "react";
+import { useState } from "react";
 import './App.css';
 import FileViewer from './FileViewer.js';
 import Loading from './Loading';
 function App() {
-  
-  const [loading,setLoading] = useState(createLoading());
-  
-  useEffect(() => {
-      return () =>{
-          
-      }
-  },[]);
-  function createLoading(){
-    return(<Loading unmountItself={unmountFileViewer}/>);
-  }
-  function unmountFileViewer(){
-     setLoading(null);
-  }
-  
+    const [loading,setLoading] = useState(true);
   return (
     <div  className="App">
-     
       <header className="App-header">
-        {loading}
-        <FileViewer startLoad={() => {setLoading(createLoading())}}/>
+        {(loading)&&<Loading unmountItself={()=>setLoading(false)}/>}
+        <FileViewer startLoad={() => {setLoading(true)}}/>
       </header>
     </div>
   );

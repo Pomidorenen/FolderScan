@@ -1,17 +1,17 @@
 .Loading-screen{
-  font-size: calc(38px);
+  font-size: 38px;
   min-height: 385px;
   width: 500px;
   border-radius: 6%;
   position: absolute;
-   display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   
 }
 .CurrentFile{
-  font-size: calc(18px);
+  font-size:18px;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -19,7 +19,7 @@
 }
 .loader {
   height: 100px;
-  aspect-ratio : 1 / 1;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   display: inline-block;
   border-top: 4px solid #FFF;
@@ -49,11 +49,9 @@
   
 }
 .loadingButton{
-
-  margin: 20px 0px 0px 0px;
+  margin: 20px 0 0 0;
   padding: 15px;
-  border: solid;
-  border-color: aliceblue;
+  border: solid 2px aliceblue;
   border-radius: 24px;
   text-align: center;
   background-color: var(--background-dark);
@@ -64,14 +62,14 @@
   filter: brightness(160%);
 }
 .selector{
-  background-color: inheritse;
+  background-color:black;
   border: solid;
   border-top: none;
   border-color: aliceblue;
   border-radius: 12px;
   text-align: center;
   color: aliceblue;
-  font-size: calc(26px);
+  font-size: 26px;
   background-color: var(--background-dark);
 }
 .selector::-webkit-scrollbar {

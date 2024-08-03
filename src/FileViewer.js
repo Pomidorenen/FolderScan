@@ -74,10 +74,10 @@ function FileViewer(props){
     }
     function sortBy(select,parametrs,column){
         if(select){
-            filesRaw.sort((a,b)=>b[paramets]-a[paramets]);
+            filesRaw.sort((a,b)=>b[parametrs]-a[parametrs]);
         }
         else{
-            filesRaw.sort((a,b)=>a[paramets]-b[paramets]);
+            filesRaw.sort((a,b)=>a[parametrs]-b[parametrs]);
         }
         fileList(filesRaw);
         setNameAscending(!select);

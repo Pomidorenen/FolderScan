@@ -68,7 +68,7 @@ function Loading({unmountItself}) {
         <div className='background-loading'>
             <div className="Loading-screen">
                 {clicked&&<span className="loader"></span>}
-                {!clicked && <text onClick={startScaning} className="loadingButton">[Start scan] {path}</text>}
+                {!clicked&&<text onClick={startScaning} className="loadingButton">[Start scan] {path}</text>}
                 {clicked&&<text> Please wait</text>}
                 <text className="CurrentFile">{currentFile}</text>
                 {!clicked&&<div>

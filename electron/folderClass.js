@@ -2,7 +2,6 @@ const AbstractFile = require("./abstractClass");
 const FileClass = require("./fileClass");
 const nodePath = require('path');
 const globalVariables = require('./globalVar');
-const path = require('path');
 const fs = require('fs');
 const os = require('os');
 module.exports =  class FolderClass extends AbstractFile{

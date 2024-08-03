@@ -10,10 +10,6 @@ module.exports = class FileClass extends AbstractClass{
             } catch (error) {
                 console.log("Can't read " + path);
             }
-            
         }
-        
     }
-    
-
 }

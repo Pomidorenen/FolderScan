@@ -27,15 +27,17 @@ class DiskLists{
         return returnVal;
     }
     static #getDisksWindows(){
-        let returnVal = [];
         const command = "Get-WmiObject Win32_LogicalDisk |select Name,VolumeName |ConvertTo-JSON";
         let output = execSync(command,{'shell':'powershell.exe'}).toString();
         output = JSON.parse(output);
         console.log(output);
-        output.forEach(disk => {
-            returnVal.push({name:disk["VolumeName"],spareName:disk["Name"],mountpoints:[disk["Name"]+"\\"]});
+        console.log(typeof output);
+        return [output].map(({VolumeName,Name})=>{
+            console.log(VolumeName,Name);
+            return{ name:VolumeName,
+                    spareName:Name,
+                    mountpoints:[Name+"\\"]}
         });
-        return returnVal;
     }
 }
 module.exports = DiskLists;

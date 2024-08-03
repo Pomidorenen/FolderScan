@@ -73,11 +73,14 @@ function FileViewer(props){
         setPreviousItems([...previousItems.slice(1)]);
     }
     function sortBy(select,parametrs,column){
-        if(select){
-            filesRaw.sort((a,b)=>b[parametrs]-a[parametrs]);
-        }
-        else{
-            filesRaw.sort((a,b)=>a[parametrs]-b[parametrs]);
+        filesRaw.sort((a,b)=>{
+            if(typeof a[parametrs] =="string"||typeof b[parametrs] =="string") {
+                return a[parametrs].localeCompare(b[parametrs]);
+            }
+            return b[parametrs]-a[parametrs];
+        })
+        if(!select){
+         filesRaw.reverse();
         }
         fileList(filesRaw);
         setNameAscending(!select);
